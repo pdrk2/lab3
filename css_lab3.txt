@@ -1,0 +1,32 @@
+#map {
+    height:380px;
+    width:500px;
+}
+#tweet {
+    float:left;
+}
+#facebook {
+    float:right;
+}
+#chart_dia {
+    width:250px;
+    height:250px;
+}
+
+.ui-mobile-viewport{
+    background: url("http://www.meripuisto.com/images/wallpaper/2014/01/21/htc-hd-wallpaper-free-download-keyboard-desire-mini-android-mobile-handy-handbuch.jpg") no-repeat;
+    background-size: 100% 100% !important;
+}
+.ui-page{
+    background:none;
+}
+.ui-overlay-a{
+    background:#222 !important;
+} 
+#map-canvas {
+        height: 400px;
+width: 1300px;
+position: relative;
+background-color: rgb(229, 227, 223);
+overflow: hidden;
+      }

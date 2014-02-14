@@ -1,0 +1,413 @@
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang="></script>
+
+
+<div data-role="page" id="login">
+  <div data-role="header" data-position="fixed">
+   <a href="#login" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search" >Search</a>
+  </div>
+
+  <div data-role="content">
+      <h3>Please select one of the below option:</h3>
+     <ul data-role="listview" data-theme="e" >
+      <li><a href="#existing">Login as an Existing User</a></li>
+      <li><a href="#new">Login as New User</a></li>
+          </ul>
+         </div>
+
+  <div data-role="footer" data-position="fixed">
+      
+    <h1> <img id="tweet" style="cursor:pointer;" title="Share this on Twitter" src="http://a3.twimg.com/a/1294785484/images/goodies/tweetn.png" /> Anything about a event, you are just a click away <a id="facebook" href="http://www.facebook.com/share.php?u=http://www.umkc.edu/" onclick="return fbsclick()" target="_blank"> <img src= "http://b.static.ak.fbcdn.net/images/share/
+facebook_share_icon.gif?8:26981" alt="" /></a></h1>
+      
+  </div>
+</div> 
+
+ <div data-role="page" id="new">
+  <div data-role="header" data-position="fixed">
+   <a href="#login" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+     <input type="text" id="name" placeholder="Enter Your Name" data-theme="e"/>
+
+<input type="text" id="age" placeholder="Enter Your Age" data-theme="e"/>
+
+<input type="password" id="pass" placeholder="Enter Your Password" data-theme="e"/>
+
+<input type="submit" value="Register" id="btnRegister" data-theme="e"/>
+      <div id="demo"></div>
+
+         </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+ <div data-role="page" id="existing">
+  <div data-role="header" data-position="fixed">
+   <a href="#login" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+    <input type="text" id="userName" placeholder="Enter user name" data-theme="e"/>
+<input type="password" id="userPass" placeholder="Enter user password" data-theme="e"/>
+<input type="submit" value="Login" id="btnLogin" data-theme="e"/>
+      <div id="demo1"></div>
+         </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+   <div data-role="page" id="home" >
+<div data-role="header" data-theme="a">
+     <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search" class="ui-btn-right">Search</a>
+                <div data-role="navbar" class="ui-btn-active ui-state-persist">
+      <ul>
+        <li><a href="#home" >Home</a></li>
+         <li><a href="#services" >Services</a></li>
+        <li><a href="#about" >About Us</a></li>
+        <li><a href="#contact" >Contact Information</a></li>
+      </ul>
+    </div>
+  </div>
+
+       <div data-role="content" >
+                 <h2> Welcome User</h2>
+           <div class="results"></div>
+      <h3 > Our application, Even Organizer helps you to set up a plan and promote your upcoming event in minutes </h3>
+           <p><strong> Have a look at our available services in services tab to plan an event effectively</strong></p>
+           <h3 > Please check the event location on google maps and know about the weather condition before planning to avoid any inconvenience </h3>    
+     <input id="address" data-theme="e" type="search" placeholder="Search by location">
+          <button id="desttemp" data-theme="e" onclick="desttemp()">Submit</button>
+      </div>
+          <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+           <div id="map-canvas"></div>
+       </div>
+          <div data-role="page" id="services">
+  <div data-role="header" data-position="fixed">
+   <a href="#home" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+      <h3>Select the service you would like to opt:</h3>
+     <ul data-role="listview" data-theme="e" >
+      <li><a href="#second">Venue</a></li>
+      <li><a href="#third">Catering</a></li>
+      <li><a href="#fourth">Decorations</a></li>
+         <li><a href="#fifth">Photographer</a></li>
+    </ul>
+         </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+       <div data-role="page" id="about">
+  <div data-role="header" data-position="fixed">
+   <a href="#home" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content"> 
+      <p>
+          <h3>Introduction: </h3>
+          <strong>Event Organizer system is an online based application that provides service to the customers in order to plan an event effectively. This application acts as a bridge between the users and the organizers in scheduling and conducting various events. It allows the customers to select any particular service that is available and suits the best for the occasion. The customers will be able to order the services from different vendors in the nearest locations.</strong>
+          <h3>Project Goal and Objectives: </h3>
+<strong>The ultimate goal of the project is to design an online event organizer system through web and mobile app in order to provide customers the best services from different vendors. 
+    There are many vendors available for an event to arrange services like venue, food, decorations, and photography. It is very difficult to access various vendor’s information in order to get the best service of all. Also, identifying the vendors in the nearest locations and getting their reviews is very tough. To overcome these problems, our application provides the customers the option to choose vendors suitable to their requirements in the nearby proximity and place the order well in advance through online.</strong>
+          <h3>Significance: </h3>
+          <strong>The main significant feature of this project is customers need not visit each vendor’s website individually to know their features, deals or reviews. Instead, they can just register and login to our web application and choose the best vendors and their deals in nearby locations. They can also check the vendor’s previous events and their reviews posted on our website. Also, the user interface will be universal for all the vendors so that the customers can easily access this web application. The event organizer system will be a flexible and user friendly application. It gives the customers the choice of opting best vendors </strong>
+      </p>
+         </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+       <div data-role="page" id="contact">
+  <div data-role="header" data-position="fixed">
+   <a href="#home" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+      <p> 
+          <strong>Thank you for visiting our website. </strong>
+          <br></br>
+          <strong>If you have any queries or need technical support please email: eventorganizer@gmail.com</strong>
+ <br></br>
+          <strong>Technical support is always free to eventorganizer users.</strong>
+           <br></br>
+          <strong>Please contact us @1212121212 for any assistance !!</strong>
+      </p>
+         </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="second">
+  <div data-role="header" data-position="fixed">
+   <a href="#services" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+          <h3> Select the venue you would like to opt:</h3>
+    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search For Names" data-theme="e" >
+      <li><a href="#venue1">Union Hill Inn in Sonora, California</a></li>
+            <li><a href="#venue2"> Cafe Brauer in Chicago, Illinois</a></li>
+        <li><a href="#venue3"> Sodo Park in Seattle, Washington</a></li>
+        <li><a href="#venue4"> The Barr Mansion and Artisan Ballroom in Austin, Texas</a></li>
+            </ul>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="third">
+  <div data-role="header" data-position="fixed">
+    <a href="#services" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+          <p></p>
+      <form method="post" >
+      <fieldset data-role="controlgroup" data-theme="e">
+          <legend><strong>Choose one of the below options: </strong></legend>
+          <p id="display1"></p>
+        <label for="global" >Global Gourmet Catering</label>
+        <input type="radio" data-theme="e" name="catering" id="global" value="global">
+        <label for="jewel">Jewel Events Catering</label>
+        <input type="radio" data-theme="e" name="catering" id="jewel" value="jewel">
+            <label for="mustard">Mustard Catering</label>
+        <input type="radio" data-theme="e" name="catering" id="mustard" value="mustard">
+            <label for="occassions">Occassions Caterers</label>
+        <input type="radio" data-theme="e" name="catering" id="occassions" value="occassions">
+            <label for="patina"> Patina Restaurant Group's Patina Catering</label>
+        <input type="radio" data-theme="e" name="catering" id="patina" value="patina">
+      </fieldset>
+            <p><a href="#" data-role="button" data-theme="e" data-inline="true" id="button5"><strong>Place Order</strong></a></p>
+    </form>
+            </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="fourth">
+  <div data-role="header">
+   <a href="#services" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+       <form>
+                  <fieldset data-role="controlgroup" data-theme="e">
+                      <legend><strong>Choose as many items as you'd like to decorate your event:</strong></legend>
+                      <p id="display2" ></p>
+          <label for="ballons">Ballons</label>
+          <input type="checkbox" name="deco" id="ballons" value="ballons" data-theme="e" >
+          <label for="ribbons">Ribbons</label>
+          <input type="checkbox" name="deco" id="ribbons" value="ribbons" data-theme="e">
+          <label for="pearls">Pearls</label>
+              <input type="checkbox" name="deco" id="pearls" value="pearls" data-theme="e" >	
+           <label for="flowers">Flowers</label>
+              <input type="checkbox" name="deco" id="flowers" value="flowers" data-theme="e" >
+                   <label for="lights">Lights</label>
+              <input type="checkbox" name="deco" id="lights" value="lights" data-theme="e">
+      </fieldset>
+                  <p><a href="#" data-role="button" data-inline="true" id="button6" data-theme="e"><strong>Place Order</strong></a></p>
+ 
+              </form>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+<div data-role="page" id="fifth">
+  <div data-role="header" data-position="fixed">
+    <a href="#services" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+
+  <div data-role="content">
+   
+      <form method="post" >
+      <fieldset data-role="controlgroup" data-theme="e">
+          <legend><strong>Please select one of the option to provide photographer in order to click pictures and shoot videos? </strong></legend>
+          <p id="display3"></p>
+        <label for="y" >Yes</label>
+        <input type="radio" name="photo" id="y" value="y" data-theme="e">
+        <label for="n">No</label>
+        <input type="radio" name="photo" id="n" value="n" data-theme="e">
+              </fieldset>
+             <p><a href="#" data-role="button" data-inline="true" id="button7" data-theme="e">Submit your request</a></p>
+    </form>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="venue1">
+  <div data-role="header" data-position="fixed">
+    <a href="#second" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+    <div data-role="content">
+                <p> <strong>Rustic and refined... an inviting and ideal setting for gatherings of all sizes.  
+                    For an intimate weekend or large celebration hidden in plain sight.  </strong></p> 
+<a href="#googlepage" data-role="button" data-theme="e" data-inline="true">Find us to Google Maps</a>
+        
+      <h3> Select one of the below options:</h3>
+        <p id="display"></p>
+        <p><a href="#" data-role="button" id="button1" data-theme="e">Upto 100 guests: $5900</a></p>
+        <p><a href="#" data-role="button" id="button2" data-theme="e">100 to 150 guests: $6400</a></p>
+        <p><a href="#" data-role="button" id="button3" data-theme="e">150 to 200: $6900 </a></p>
+        <p><a href="#" data-role="button" id="button4" data-theme="e">200 to 250: $7400 </a></p>
+            </div>
+     <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+     <div data-role="page" id="venue2">
+  <div data-role="header" data-position="fixed">
+    <a href="#second" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+    <div data-role="content">
+        
+        <p> <strong>The timeless elegance of the Great Hall of Café Brauer is ideal for any social or corporate occasion. </strong></p> 
+        <input type="submit" value="Click here to check our Sales !!" id="btnClick" data-theme="e"/>
+<div id="chart_dia"></div>
+        
+      <h3> Select one of the below options:</h3>
+        <p id="display6"></p>
+        <p><a href="#" data-role="button" id="button12" data-theme="e">upto 600 guests: $ 3000 </a></p>
+        <p><a href="#" data-role="button" id="button13" data-theme="e">upto 1000 guests : $6000</a></p>
+        <p><a href="#" data-role="button" id="button14" data-theme="e">upto 1500 guests : $9000 </a></p>
+              </div>
+     <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+<div data-role="page" id="venue3">
+  <div data-role="header" data-position="fixed">
+    <a href="#second" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+    <div data-role="content">
+        
+        <p> <strong>Sodo Park is an ideal location for Seattle weddings, holiday parties, corporate events, receptions, galas, fundraisers and auctions. </strong></p> 
+       
+      <h3> Select one of the below options:</h3>
+        <p id="display5"></p>
+                <p><a href="#" data-role="button" id="button10" data-theme="e">100-500 guests : $4800</a></p>
+        <p><a href="#" data-role="button" id="button11" data-theme="e">550 to 850: $7400 </a></p>
+            </div>
+     <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+      <div data-role="page" id="venue4">
+  <div data-role="header" data-position="fixed">
+    <a href="#second" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+    <div data-role="content">
+        <p><strong>Barr Mansion is not only the nation's first certified organic events facility... We're the venue that is committed to bringing you the best day of your life... </strong></p>         
+      <h3> Select one of the below options:</h3>
+        <p id="display4"></p>
+        <p><a href="#" data-role="button" id="button8" data-theme="e" >upto 1000 guests: $7000</a></p>
+        <p><a href="#" data-role="button" id="button9" data-theme="e">upto 2000 guests: $9000</a></p>
+       
+            </div>
+     <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+</div> 
+
+      <div data-role="page" id="googlepage">
+  <div data-role="header" data-position="fixed">
+    <a href="#second" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    <a href="#search" data-role="button" data-icon="search">Search</a>
+  </div>
+    <div data-role="content">
+              
+            </div>
+     <div data-role="footer" data-position="fixed">
+    <h1>Anything about a event, you are just a click away</h1>
+  </div>
+          
+<div id="map" ></div>
+         </div> 
+   <div data-role="page" id="search">
+  <div data-role="header" data-position="fixed">
+   <a href="#home" data-role="button" data-icon="home">Home</a>
+    <h1>Event Organizer</h1>
+    </div>
+  <div data-role="content">
+      <form name="box" id="searchbox" action="http://www.google.com/cse">
+  <input type="hidden" name="cref" value="" />
+  <input type="hidden" name="ie" value="utf-8" />
+  <input type="hidden" name="hl" value="" />
+  <input name="q" type="text" size="40" data-theme="e"/>
+  <input type="submit" name="sa" value="Search" data-theme="e" />
+</form>
+    </div>
+  <div data-role="footer" data-position="fixed">
+      
+    <h1> <img id="tweet" style="cursor:pointer;" title="Share this on Twitter" src="http://a3.twimg.com/a/1294785484/images/goodies/tweetn.png" /> Anything about a event, you are just a click away <a id="facebook" href="http://www.facebook.com/share.php?u=http://www.umkc.edu/" onclick="return fbsclick()" target="_blank"> <img src= "http://b.static.ak.fbcdn.net/images/share/
+facebook_share_icon.gif?8:26981" alt="" /></a></h1>
+      
+  </div>
+</div> 
+      
+      
+      
+      
+      

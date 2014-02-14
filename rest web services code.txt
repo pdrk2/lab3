@@ -1,0 +1,18 @@
+...................................
+html code
+............................
+
+<input type="button" class="list" value="click me"></input>
+.......................................
+javascript
+....................................
+$(document).ready(function(){
+    $("#button1").click(function() {
+        
+        
+        $.getJSON('http://localhost/aspnet_client/WcfService1/Service1.svc/data/10',function(data){
+alert(data.Id);
+        });
+   
+    });
+});
